@@ -1,0 +1,22 @@
+{
+  "clicks": [
+    {
+      "clickAmount": 200,
+      "id": 1
+    }
+  ],
+  "winners": [
+    {
+      "id": 1,
+      "name": "Niklas",
+      "prizeSize": "small",
+      "winningClickNr": 100
+    },
+    {
+      "id": 2,
+      "name": "Ville",
+      "prizeSize": "medium",
+      "winningClickNr": 200
+    }
+  ]
+}
