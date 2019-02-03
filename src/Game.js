@@ -115,6 +115,9 @@ class Game extends React.Component {
     return (
       <div>
         <div>
+          <h1>The Game</h1>
+        </div>
+        <div>
           <button onClick={this.onClickButton}>Try your luck</button>
         </div>
         <div>

@@ -1,7 +1,7 @@
 {
   "clicks": [
     {
-      "clickAmount": 500,
+      "clickAmount": 600,
       "id": 1
     }
   ],
@@ -35,6 +35,12 @@
       "prizeSize": "BIG",
       "winningClickNr": 500,
       "id": 5
+    },
+    {
+      "name": "Jonas",
+      "prizeSize": "MEDIUM",
+      "winningClickNr": 600,
+      "id": 6
     }
   ]
 }

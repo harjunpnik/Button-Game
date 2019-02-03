@@ -20,6 +20,10 @@ class Winners extends React.Component {
       })
   }
 
+  componentDidMount() {
+    this.setState({isLoading: false})
+  }
+
   onClickButton = () => {
     console.log("winners")
     console.log(this.state.winnerList)
@@ -28,16 +32,17 @@ class Winners extends React.Component {
 
   render() {
     return (
+    <div>
       <div>
-        <div>
-          <h1>Winners</h1>
-        </div>
-        <div>
-            {this.state.winnerList.map((winner) =>
-                <li key={winner.id}> { winner.name}</li>
-            )}
-        </div>
+        <h1>Winners</h1>
       </div>
+      <div>
+          {this.state.winnerList.map((winner) =>
+              <li key={winner.id}> { winner.name}</li>
+          )}
+      </div>
+    </div>
+      
     )
   }
 }
