@@ -1,22 +1,40 @@
 {
   "clicks": [
     {
-      "clickAmount": 529,
+      "clickAmount": 500,
       "id": 1
     }
   ],
   "winners": [
     {
-      "id": 1,
       "name": "Niklas",
-      "prizeSize": "small",
-      "winningClickNr": 100
+      "prizeSize": "SMALL",
+      "winningClickNr": 100,
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Ville",
-      "prizeSize": "medium",
-      "winningClickNr": 200
+      "prizeSize": "MEDIUM",
+      "winningClickNr": 200,
+      "id": 2
+    },
+    {
+      "name": "Pelle",
+      "prizeSize": "SMALL",
+      "winningClickNr": 300,
+      "id": 3
+    },
+    {
+      "name": "Kalle",
+      "prizeSize": "MEDIUM",
+      "winningClickNr": 400,
+      "id": 4
+    },
+    {
+      "name": "Juha",
+      "prizeSize": "BIG",
+      "winningClickNr": 500,
+      "id": 5
     }
   ]
 }

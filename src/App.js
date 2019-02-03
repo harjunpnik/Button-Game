@@ -15,11 +15,10 @@ class App extends React.Component {
             <li><Link to="/">The Game</Link></li>
             <li><Link to="/winners">Winners</Link></li>
           </ul>
-          <Route exact path="/" component={Game} />
-          <Route path="/winners" component={Winners} />
-
+          
           <div className="pageContainer">
-
+            <Route exact path="/" component={Game} />
+            <Route path="/winners" component={Winners} />
           </div>
 
         </div>

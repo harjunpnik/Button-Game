@@ -7,9 +7,11 @@ class Game extends React.Component {
     this.state = {
       winnerList: [],
       winningClickNr: 0,
-      newWinner: '',
+      newWinnerName: '',
+      prizeSize: '',
       clicksToNextPrize: 0,
-      clickAmount: 0
+      clickAmount: 0,
+      showWinnerForm: false
     }
   }
 
@@ -39,16 +41,77 @@ class Game extends React.Component {
 
             if(this.state.clickAmount % 500 === 0){
               console.log("500 clicks prize")
+              this.setState({ 
+                showWinnerForm: true,
+                prizeSize: "BIG"
+              })
             }else if(this.state.clickAmount % 200 === 0){
+              this.setState({ 
+                showWinnerForm: true,
+                prizeSize: "MEDIUM"
+              })
               console.log("200 clicks prize")
             }
             else if(this.state.clickAmount % 100 === 0){
               console.log("100 clicks prize")
+              this.setState({ 
+                showWinnerForm: true,
+                prizeSize: "SMALL"
+              })
             }
         })
   }
 
+  sendForm = (event) =>{
+    event.preventDefault()
+    const winnerObject = {
+      name: this.state.newWinnerName,
+      prizeSize: this.state.prizeSize,
+      winningClickNr: this.state.clickAmount
+
+    }
+
+    axios
+      .post('http://localhost:3001/winners', winnerObject)
+      .then(response => {
+        this.setState({
+          winners: this.state.winnerList.concat(response.data),
+          newWinnerName: '',
+          showWinnerForm: false
+        })
+      })
+      
+    
+  }
+
+  newWinnerOnChange = (event) => {
+    //console.log(event.target.value)
+    this.setState({ newWinnerName: event.target.value })
+  }
+
   render() {
+    if(this.state.showWinnerForm){
+      return(
+        <div>
+          <div>
+            <h1>Congratulations</h1>
+          </div>
+          <div>
+           <p> Congratiulations. You have won a {this.state.prizeSize} prize</p>
+           <p>Please enter your nickname:</p>
+           <div>
+             <form onSubmit={this.sendForm}>
+              <input 
+                value={this.state.newWinnerName}
+                onChange={this.newWinnerOnChange}></input>
+              <button type="submit">Send</button>
+             </form>
+           </div>
+          </div>
+        </div>
+      )
+
+    }
     return (
       <div>
         <div>
