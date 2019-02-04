@@ -1,0 +1,142 @@
+body{
+    background-color: #A9A9A9;
+    font: 15px/1.5 Arial, Helvetica,sans-serif;
+    padding:0;
+    margin:0;
+  }
+  
+  .container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+  
+  ul{
+    margin:0;
+    padding:0;
+  }
+
+  /* HEADER */
+  header{
+    background: #E24E42;
+    color:#ffffff;
+    padding-top:30px;
+    min-height:70px;
+  }
+  
+  header a{
+    color:#ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  header img{
+      float: left;
+      margin-right:10px; 
+  }
+  
+  header li{
+    display:inline;
+    padding: 0 20px 0 20px;
+  }
+  
+  header #headerTitle{
+    float:left;
+  }
+  
+  header #headerTitle h1{
+    margin:0;
+    font-size: 190%;
+  }
+  
+  header nav{
+    float:right;
+    margin-top:10px;
+  }
+  
+  header a:hover{
+    color:#000000;
+  }
+
+  /*PAGE CONTAINER*/
+  .pageContainer{
+    text-align: center;
+    height: 100vh;
+  }
+
+  /*GAME PAGE*/
+  .gamePage{
+    background-color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20vh;
+    width: 50%;
+    min-width: 200px;
+  }
+
+  /*WINNER PAGE*/
+  .winnerPage{
+    background-color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20vh;
+    width: 50%;
+    min-width: 200px;
+  }
+
+  .winnerPage li{
+    list-style-type: none;
+  }
+
+  /*INFO PAGE*/
+  .infoPage{
+    background-color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20vh;
+    width: 50%;
+    min-width: 200px;
+  }
+  
+  .infoPage li{
+    list-style-type: none;
+  }
+
+  /*THE GAME BUTTON*/
+
+.gameButton{
+  color: #ffffff;
+  background-color: #E24E42;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px #A9A9A9;
+}
+
+.gameButton:hover{
+  background-color: #cc4439;
+}
+
+.gameButton:active{
+  background-color: #cc4439;
+  transform: translateY(5px);
+  box-shadow: 0 5px #7c7c7c;
+}
+  

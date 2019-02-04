@@ -113,12 +113,12 @@ class Game extends React.Component {
 
     }
     return (
-      <div>
+      <div className="gamePage">
         <div>
-          <h1>The Game</h1>
+          <h1>Button Game</h1>
         </div>
         <div>
-          <button onClick={this.onClickButton}>Try your luck</button>
+          <button className="gameButton" onClick={this.onClickButton}>Try your luck</button>
         </div>
         <div>
           <p> Amount of total clicks: {this.state.clickAmount}</p>

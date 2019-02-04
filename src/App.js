@@ -3,7 +3,7 @@ import Game from './Game'
 import Winners from './Winners'
 import Info from './Info'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import './css/style.css';
+import './style/style.css';
 import logo from './images/button.ico';
 
 
