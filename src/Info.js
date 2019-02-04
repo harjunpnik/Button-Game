@@ -8,7 +8,6 @@ class Info extends React.Component {
       <div>
         <h1>Info</h1>
       </div>
-      <h3>The button game</h3>
       <p>The goal of the game is to click the button. 
         Every 100 clicks will win a prize. 
         Everyone is collectively increasing the counter. 

@@ -3,6 +3,7 @@ body{
     font: 15px/1.5 Arial, Helvetica,sans-serif;
     padding:0;
     margin:0;
+    height: 100vh;
   }
 
 /*GRADIENT ANIMATION BACKGROUND*/
@@ -29,11 +30,19 @@ body{
     width: 80%;
     margin: auto;
     overflow: hidden;
-}
-  
+  }
+
   ul{
     margin:0;
     padding:0;
+  }
+
+  h1{
+    font-size: 40px
+  }
+
+  p,li{
+    font-size: 20px
   }
 
   /* HEADER */
@@ -59,6 +68,7 @@ body{
   
   header li{
     display:inline;
+    font-size: 15px;
     padding: 0 20px 0 20px;
   }
   
@@ -83,7 +93,6 @@ body{
   /*PAGE CONTAINER*/
   .pageContainer{
     text-align: center;
-    height: 100vh;
   }
 
   /*GAME PAGE*/
@@ -160,4 +169,45 @@ body{
   transform: translateY(5px);
   box-shadow: 0 5px #7c7c7c;
 }
-  
+ 
+/*WINNER FORM BUTTON*/
+form button{
+  color: #ffffff;
+  background-color: #E24E42;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #A9A9A9;
+  padding: 10px;
+  margin-left: 4px;
+  font-size: 20px;
+}
+
+form button:hover{
+  background-color: #cc4439;
+}
+
+form button:active{
+  background-color: #cc4439;
+  transform: translateY(2px);
+  box-shadow: 0 2px #7c7c7c;
+}
+
+form input{
+  font-size: 20px;
+  height: 30px;
+  border: 2px solid #E24E42;
+  border-radius: 4px;
+  outline: none;
+}
+
+.submitButtonDisabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submitButtonShow{
+  cursor: pointer;
+}

@@ -14,7 +14,7 @@ class App extends React.Component {
       <Router>
         <div>
           <header>
-            <div className="container">
+            <div className="container" id="headerContainer">
               <div id="headerTitle">
               <Link to="/">
                 <img src={logo} alt="Picture of a button" width="16%"/>
