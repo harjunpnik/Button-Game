@@ -11,7 +11,8 @@ class Game extends React.Component {
       prizeSize: '',
       clicksToNextPrize: 0,
       clickAmount: 0,
-      showWinnerForm: false
+      showWinnerForm: false,
+      buttonIsEnabled: false
     }
   }
 
@@ -87,12 +88,17 @@ class Game extends React.Component {
   newWinnerOnChange = (event) => {
     //console.log(event.target.value)
     this.setState({ newWinnerName: event.target.value })
+    if(event.target.value.length > 0){
+      this.setState({buttonIsEnabled: true})
+    }else{
+      this.setState({buttonIsEnabled: false})
+    }
   }
 
   render() {
     if(this.state.showWinnerForm){
       return(
-        <div>
+        <div className="gamePage">
           <div>
             <h1>Congratulations</h1>
           </div>
@@ -100,11 +106,11 @@ class Game extends React.Component {
            <p> Congratiulations. You have won a {this.state.prizeSize} prize</p>
            <p>Please enter your nickname:</p>
            <div>
-             <form onSubmit={this.sendForm}>
+             <form onSubmit={this.sendForm} >
               <input 
                 value={this.state.newWinnerName}
                 onChange={this.newWinnerOnChange}></input>
-              <button type="submit">Send</button>
+              <button type="submit" disabled={!this.state.buttonIsEnabled} >Send</button>
              </form>
            </div>
           </div>

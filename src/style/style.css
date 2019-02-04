@@ -1,8 +1,28 @@
 body{
-    background-color: #A9A9A9;
+    /*background-color: #A9A9A9;*/
     font: 15px/1.5 Arial, Helvetica,sans-serif;
     padding:0;
     margin:0;
+  }
+
+/*GRADIENT ANIMATION BACKGROUND*/
+body{
+  background: linear-gradient(270deg, #e24e42, #e24e42, #c492b1, #bce7fd, #12eaea, #b0db43, #b0db43, #12eaea, #bce7fd, #c492b1, #e24e42, #e24e42);
+  background-size: 2400% 2400%;
+  -webkit-animation: backgroundGradient 40s ease infinite;
+  animation: backgroundGradient 40s ease infinite;
+  }
+
+  @-webkit-keyframes backgroundGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  
+  @keyframes backgroundGradient { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
   }
   
   .container{
@@ -20,6 +40,7 @@ body{
   header{
     background: #E24E42;
     color:#ffffff;
+    border-bottom:#ffffff 4px solid;
     padding-top:30px;
     min-height:70px;
   }
