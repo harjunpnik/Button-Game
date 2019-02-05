@@ -5,7 +5,8 @@ class Winners extends React.Component {
   constructor() {
     super()
     this.state = {
-        winnerList: []
+        winnerList: [],
+        isLoading: true
     }
   }
 
@@ -16,7 +17,9 @@ class Winners extends React.Component {
       .then(response => {
         console.log('promise fulfilled')
         console.log(response.data)
-        this.setState({ winnerList: response.data })
+        this.setState({ 
+          winnerList: response.data, 
+          isLoading: false })
       })
   }
 
@@ -25,7 +28,6 @@ class Winners extends React.Component {
     console.log(this.state.winnerList)
   }
 
-
   render() {
     return (
     <div className="winnerPage">
@@ -33,9 +35,14 @@ class Winners extends React.Component {
         <h1>Winners</h1>
       </div>
       <div>
+      {this.state.isLoading && <div className="loadingSpinner">Loading...</div>}
+      {!this.state.isLoading && (
+        <ul>
           {this.state.winnerList.map((winner) =>
               <li key={winner.id}> { winner.name}</li>
           )}
+        </ul>
+      )}
       </div>
     </div>
       
