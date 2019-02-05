@@ -20,27 +20,20 @@ class Game extends React.Component {
   //  TO THE DATABASE. IF THE PLAYER WOULD WIN A PRIZE, THEN THE PAGE WOULD CHANGE TO A FORM SO THAT THEY CAN LEAVE THEIR NICKNAME
   //  LASTLY IT WILL TELL THE PLAYER THE AMOUNT OF CLICKS TO THE NEXT PRIZE.
   onClickButton = () => {
-    //console.log("get ")
-
     //  GET THE TOTAL AMOUNT OF CLICKS AND SET THE STATE OF "clickAmount" TO THAT VALUE + 1
     axios
       .get('http://localhost:3001/clicks')
         .then(response => {
-          //console.log(response.data[0])
           this.setState({ clickAmount: response.data[0].clickAmount + 1})
 
           const amountObject = {
             clickAmount: this.state.clickAmount
           }
 
-          //console.log("put")
-      
-
            //  POSTS THE TOTAL AMOUNT OF CLICKS CLICKS TO THE DATABASE AND CHECK IF THE PLAYER WINS A PRIZE
           axios
             .put('http://localhost:3001/clicks/1', amountObject)
             .then(response => {
-              //console.log(response)
             })
 
             //  CALCULATES AND SETS THE STATE OF THE "clicksToNextPrize" VARIAABLE
@@ -49,7 +42,6 @@ class Game extends React.Component {
             //  CHECKS IF THE PLAYER WINS A PRIZE AND SETS THE "showWinnerForm" TO TRUE SO THAT IT WILL BE RENDERED
             //  CHECKS IF THE PLAYER WINS A 500 CLICKS PRIZE
             if(this.state.clickAmount % 500 === 0){
-              //console.log("500 clicks prize")
               this.setState({ 
                 showWinnerForm: true,
                 prizeSize: "BIG"
@@ -60,11 +52,9 @@ class Game extends React.Component {
                 showWinnerForm: true,
                 prizeSize: "MEDIUM"
               })
-              //console.log("200 clicks prize")
             }
             //  CHECKS IF THE PLAYER WINS A 100 CLICKS PRIZE
             else if(this.state.clickAmount % 100 === 0){
-              //console.log("100 clicks prize")
               this.setState({ 
                 showWinnerForm: true,
                 prizeSize: "SMALL"
@@ -103,7 +93,6 @@ class Game extends React.Component {
 
   //  ONCHANGE OF FORM, SETS STATE OF WINNER NAME AND PREVENTS USER FROM SENDING EMPTY
   newWinnerOnChange = (event) => {
-    //console.log(event.target.value)
     this.setState({ newWinnerName: event.target.value })
     if(event.target.value.length > 0){
       this.setState({buttonIsEnabled: true})

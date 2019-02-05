@@ -4,6 +4,7 @@ class Info extends React.Component {
 
   render() {
     return (
+    //  INFO PAGE
     <div className="infoPage">
       <div>
         <h1>Info</h1>

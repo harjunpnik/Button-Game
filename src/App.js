@@ -9,8 +9,11 @@ import logo from './images/button.ico';
 
 class App extends React.Component {
 
+  //  MAIN STRUCTURE OF APP
   render() {
     return (
+      //  STRUCTURE IS A HEADER THAT IS ON TOP AND PAGECONTAINER IN THE MIDDLE OF THE SITE
+      //  PAGE CONTAINER CHANGES THE CONTENT DEPENDING ON WHAT TAB IS SELECTED
       <Router>
         <div>
           <header>

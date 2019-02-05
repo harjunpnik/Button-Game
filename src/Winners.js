@@ -10,26 +10,23 @@ class Winners extends React.Component {
     }
   }
 
+  //  WHEN COMPONENT MOUN
   componentWillMount() {
-    console.log('will mount')
+    //  GETS THE WINNER NAMES AND SETS "winnerList" STATE TO THE WINNER NAMES
     axios
       .get('http://localhost:3001/winners')
       .then(response => {
-        console.log('promise fulfilled')
-        console.log(response.data)
+        //  SETS STATE OF "winnerList" and "isLoading" TO FALSE
         this.setState({ 
           winnerList: response.data, 
           isLoading: false })
       })
   }
 
-  onClickButton = () => {
-    console.log("winners")
-    console.log(this.state.winnerList)
-  }
-
   render() {
     return (
+    //  WHILE LOADING THIS SHOWS A LOADING SPINNER
+    //  IF IT HAS LOADED IT WILL SHOW A LIST OF ALL THE WINNERS
     <div className="winnerPage">
       <div>
         <h1>Winners</h1>
