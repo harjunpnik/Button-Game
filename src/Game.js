@@ -5,6 +5,7 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
+      data: [],
       winnerList: [],
       winningClickNr: 0,
       newWinnerName: '',
@@ -16,52 +17,51 @@ class Game extends React.Component {
     }
   }
 
-  //  ONCLICK OF THE "Try your Luck" BUTTON, THE APP WILL TAKE THE AMOUNT OF CLICKS AND INCREMENT IT BY 1, THEN UPDATE THE AMOUNT OF CLICKS 
-  //  TO THE DATABASE. IF THE PLAYER WOULD WIN A PRIZE, THEN THE PAGE WOULD CHANGE TO A FORM SO THAT THEY CAN LEAVE THEIR NICKNAME
-  //  LASTLY IT WILL TELL THE PLAYER THE AMOUNT OF CLICKS TO THE NEXT PRIZE.
   onClickButton = () => {
     //  GET THE TOTAL AMOUNT OF CLICKS AND SET THE STATE OF "clickAmount" TO THAT VALUE + 1
-    axios
-      .get('http://localhost:3001/clicks')
-        .then(response => {
-          this.setState({ clickAmount: response.data[0].clickAmount + 1})
-
-          const amountObject = {
-            clickAmount: this.state.clickAmount
-          }
-
-           //  POSTS THE TOTAL AMOUNT OF CLICKS CLICKS TO THE DATABASE AND CHECK IF THE PLAYER WINS A PRIZE
-          axios
-            .put('http://localhost:3001/clicks/1', amountObject)
-            .then(response => {
-            })
-
-            //  CALCULATES AND SETS THE STATE OF THE "clicksToNextPrize" VARIAABLE
-            this.setState({ clicksToNextPrize: 100 - (this.state.clickAmount % 100) })
-
-            //  CHECKS IF THE PLAYER WINS A PRIZE AND SETS THE "showWinnerForm" TO TRUE SO THAT IT WILL BE RENDERED
-            //  CHECKS IF THE PLAYER WINS A 500 CLICKS PRIZE
-            if(this.state.clickAmount % 500 === 0){
-              this.setState({ 
-                showWinnerForm: true,
-                prizeSize: "BIG"
-              })
-            //  CHECKS IF THE PLAYER WINS A 200 CLICKS PRIZE
-            }else if(this.state.clickAmount % 200 === 0){
-              this.setState({ 
-                showWinnerForm: true,
-                prizeSize: "MEDIUM"
-              })
-            }
-            //  CHECKS IF THE PLAYER WINS A 100 CLICKS PRIZE
-            else if(this.state.clickAmount % 100 === 0){
-              this.setState({ 
-                showWinnerForm: true,
-                prizeSize: "SMALL"
-              })
-            }
-        })
+    this.getDataFromDb();
   }
+
+  getDataFromDb = () => {
+    fetch("https://button-game-test.herokuapp.com/api/getClicks")
+      .then(data => data.json())
+      .then(res =>{ this.setState({ clickAmount: res.data[0].clickAmount })
+      
+        console.log(res.data[0].clickAmount)
+        console.log(this.state.clickAmount)
+
+        axios.post("https://button-game-test.herokuapp.com/api/updateClicks", {
+        update: { clickAmount: res.data[0].clickAmount + 1 }
+        })
+        .then(response => {
+          //  CALCULATES AND SETS THE STATE OF THE "clicksToNextPrize" VARIAABLE
+          this.setState({ clicksToNextPrize: 100 - (this.state.clickAmount % 100) })
+
+          //  CHECKS IF THE PLAYER WINS A PRIZE AND SETS THE "showWinnerForm" TO TRUE SO THAT IT WILL BE RENDERED
+          //  CHECKS IF THE PLAYER WINS A 500 CLICKS PRIZE
+          if(this.state.clickAmount % 500 === 0){
+            this.setState({ 
+              showWinnerForm: true,
+              prizeSize: "BIG"
+            })
+          //  CHECKS IF THE PLAYER WINS A 200 CLICKS PRIZE
+          }else if(this.state.clickAmount % 200 === 0){
+            this.setState({ 
+              showWinnerForm: true,
+              prizeSize: "MEDIUM"
+            })
+          }
+          //  CHECKS IF THE PLAYER WINS A 100 CLICKS PRIZE
+          else if(this.state.clickAmount % 100 === 0){
+            this.setState({ 
+              showWinnerForm: true,
+              prizeSize: "SMALL"
+            })
+          }
+        });
+
+    });
+  };
 
   //  SENDS THE USER FORM TO THE DATABASE
   sendForm = (event) =>{

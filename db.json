@@ -1,7 +1,7 @@
 {
   "clicks": [
     {
-      "clickAmount": 657,
+      "clickAmount": 807,
       "id": 1
     }
   ],
@@ -41,6 +41,18 @@
       "prizeSize": "MEDIUM",
       "winningClickNr": 600,
       "id": 6
+    },
+    {
+      "name": "Niklas",
+      "prizeSize": "SMALL",
+      "winningClickNr": 700,
+      "id": 7
+    },
+    {
+      "name": "Heikki",
+      "prizeSize": "MEDIUM",
+      "winningClickNr": 800,
+      "id": 8
     }
   ]
 }
