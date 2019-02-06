@@ -23,14 +23,14 @@ class Game extends React.Component {
   }
 
   getDataFromDb = () => {
-    fetch("https://button-game-test.herokuapp.com/api/getClicks")
+    fetch("/api/getClicks")
       .then(data => data.json())
       .then(res =>{ this.setState({ clickAmount: res.data[0].clickAmount })
       
         console.log(res.data[0].clickAmount)
         console.log(this.state.clickAmount)
 
-        axios.post("https://button-game-test.herokuapp.com/api/updateClicks", {
+        axios.post("/api/updateClicks", {
         update: { clickAmount: res.data[0].clickAmount + 1 }
         })
         .then(response => {
