@@ -61,6 +61,18 @@ router.post("/postWinner", (req, res) => {
   winner.save()
 })
 
+app.get( "/info", (req, res) => {
+  res.redirect('/info');
+})
+
+app.get( "/", (req, res) => {
+  res.redirect('/');
+})
+
+app.get( "/winnners", (req, res) => {
+  res.redirect('/winners');
+})
+
 // APPENDS "/api" TO THE REQUESTS 
 app.use("/api", router)
 app.use(express.static(__dirname + "/public"))
