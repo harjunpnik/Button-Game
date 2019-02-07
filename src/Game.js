@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+
 class Game extends React.Component {
   constructor() {
     super()
@@ -26,9 +27,6 @@ class Game extends React.Component {
     fetch("/api/getClicks")
       .then(data => data.json())
       .then(response =>{ this.setState({ clickAmount: response.data[0].clickAmount })
-      
-        console.log(response.data[0].clickAmount)
-        console.log(this.state.clickAmount)
 
         axios.post("/api/updateClicks", {
         update: { clickAmount: response.data[0].clickAmount + 1 }
@@ -58,10 +56,9 @@ class Game extends React.Component {
               prizeSize: "SMALL"
             })
           }
-        });
-
-    });
-  };
+        })
+    })
+  }
 
 //  SENDS THE USER FORM TO THE DATABASE
 sendForm = (event) =>{

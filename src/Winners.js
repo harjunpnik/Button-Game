@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 class Winners extends React.Component {
   constructor() {
     super()
@@ -18,31 +19,29 @@ class Winners extends React.Component {
       .then(response =>{ this.setState({  
         winnerList: response.data, 
         isLoading: false })
-        console.log(response.data);
-        console.log(this.state.winnerList);
-    });
+      }
+    )
   }
 
   render() {
     return (
-    //  WHILE LOADING THIS SHOWS A LOADING SPINNER
-    //  IF IT HAS LOADED IT WILL SHOW A LIST OF ALL THE WINNERS
-    <div className="winnerPage">
-      <div>
-        <h1>Winners</h1>
-      </div>
-      <div>
-      {this.state.isLoading && <div className="loadingSpinner">Loading...</div>}
-      {!this.state.isLoading && (
-        <ul>
-          {this.state.winnerList.map((winners) => 
-            <li key={winners.id}> { winners.Name}</li>
-          )}
-        </ul>
-      )}
-      </div>
-    </div>
-      
+      //  WHILE LOADING THIS SHOWS A LOADING SPINNER
+      //  IF IT HAS LOADED IT WILL SHOW A LIST OF ALL THE WINNERS
+      <div className="winnerPage">
+        <div>
+          <h1>Winners</h1>
+        </div>
+        <div>
+        {this.state.isLoading && <div className="loadingSpinner">Loading...</div>}
+        {!this.state.isLoading && (
+          <ul>
+            {this.state.winnerList.map((winners) => 
+              <li key={winners.id}> { winners.Name}</li>
+            )}
+          </ul>
+        )}
+        </div>
+      </div>  
     )
   }
 }
