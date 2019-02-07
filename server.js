@@ -69,7 +69,7 @@ app.get( "/", (req, res) => {
   res.redirect('/');
 })
 
-app.get( "/winnners", (req, res) => {
+app.get( "/winners", (req, res) => {
   res.redirect('/');
 })
 
