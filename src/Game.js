@@ -90,7 +90,7 @@ sendForm = (event) =>{
       return(
         <div className="gamePage">
           <div>
-            <h1>Congratulations</h1>
+            <h1 id="congrats">Congratulations</h1>
           </div>
           <div>
            <p> Congratiulations. You have won a {this.state.prizeSize} prize</p>

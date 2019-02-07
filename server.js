@@ -62,7 +62,7 @@ router.post("/postWinner", (req, res) => {
 })
 
 app.get( "/info", (req, res) => {
-  res.redirect('/info');
+  res.redirect('/');
 })
 
 app.get( "/", (req, res) => {
@@ -70,7 +70,7 @@ app.get( "/", (req, res) => {
 })
 
 app.get( "/winnners", (req, res) => {
-  res.redirect('/winners');
+  res.redirect('/');
 })
 
 // APPENDS "/api" TO THE REQUESTS 
