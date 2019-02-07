@@ -63,33 +63,22 @@ class Game extends React.Component {
     });
   };
 
-  //  SENDS THE USER FORM TO THE DATABASE
-  sendForm = (event) =>{
-    event.preventDefault()
-    //  THIS SAVES THE "name"(NICKNAME THAT USERS ENTER), "prizeSize" AND "winningClickNr"
-    const winnerObject = {
-      name: this.state.newWinnerName,
-      prizeSize: this.state.prizeSize,
-      winningClickNr: this.state.clickAmount
-
-    }
-
-    //  POSTS THE WINNER TO THE DATABASE AND RESETS VARIABLES
-    axios
-      .post('http://localhost:3001/winners', winnerObject)
-      .then(response => {
-        this.setState({
-          winners: this.state.winnerList.concat(response.data),
-          newWinnerName: '',
-          showWinnerForm: false,
-          clicksToNextPrize: null,
-          buttonIsEnabled: false
-        })
-        
-      })
-      
+//  SENDS THE USER FORM TO THE DATABASE
+sendForm = (event) =>{
+  event.preventDefault()
+  axios.post("/api/postWinner", {
+    update: { id: this.state.clickAmount /100, Name: this.state.newWinnerName, prizeSize: this.state.prizeSize, winningClickNr: this.state.clickAmount }
+  })
+  .then(response => {
+    this.setState({
+      newWinnerName: '',
+      showWinnerForm: false,
+      clicksToNextPrize: null,
+      buttonIsEnabled: false
+    })
     
-  }
+  })
+}
 
   //  ONCHANGE OF FORM, SETS STATE OF WINNER NAME AND PREVENTS USER FROM SENDING EMPTY
   newWinnerOnChange = (event) => {

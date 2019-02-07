@@ -54,6 +54,13 @@ router.get("/getWinners", (req, res) => {
   });
 });
 
+//  POST NEW WINNER
+router.post("/postWinner", (req, res) => {
+  const { update } = req.body;
+  const winner = new Winner (update)
+  winner.save();
+});
+
 // APPENDS "/api" TO THE REQUESTS 
 app.use("/api", router);
 app.use(express.static(__dirname + "/public"));

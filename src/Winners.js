@@ -18,6 +18,8 @@ class Winners extends React.Component {
       .then(response =>{ this.setState({  
         winnerList: response.data, 
         isLoading: false })
+        console.log(response.data);
+        console.log(this.state.winnerList);
     });
   }
 
@@ -33,8 +35,8 @@ class Winners extends React.Component {
       {this.state.isLoading && <div className="loadingSpinner">Loading...</div>}
       {!this.state.isLoading && (
         <ul>
-          {this.state.winnerList.map((winner) =>
-              <li key={winner.id}> { winner.name}</li>
+          {this.state.winnerList.map((winners) => 
+            <li key={winners.id}> { winners.Name}</li>
           )}
         </ul>
       )}
