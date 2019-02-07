@@ -106,7 +106,7 @@ body{
     padding: 10px;
     margin-top: 20vh;
     width: 50%;
-    min-width: 200px;
+    min-width: 300px;
   }
 
   /*WINNER PAGE*/
@@ -120,7 +120,7 @@ body{
     padding: 10px;
     margin-top: 20vh;
     width: 50%;
-    min-width: 200px;
+    min-width: 300px;
   }
 
   .winnerPage li{
@@ -138,7 +138,7 @@ body{
     padding: 10px;
     margin-top: 20vh;
     width: 50%;
-    min-width: 200px;
+    min-width: 300px;
   }
   
   .infoPage li{
@@ -182,6 +182,7 @@ form button{
   padding: 10px;
   margin-left: 4px;
   font-size: 20px;
+  margin-top: 4px;
 }
 
 form button:hover{
@@ -197,6 +198,7 @@ form button:active{
 form input{
   font-size: 20px;
   height: 30px;
+  width: 100%;
   border: 2px solid #E24E42;
   border-radius: 4px;
   outline: none;

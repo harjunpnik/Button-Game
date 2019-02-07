@@ -66,15 +66,11 @@ sendForm = (event) =>{
   axios.post("/api/postWinner", {
     update: { id: this.state.clickAmount /100, Name: this.state.newWinnerName, prizeSize: this.state.prizeSize, winningClickNr: this.state.clickAmount }
   })
-  .then(response => {
-    this.setState({
-      newWinnerName: '',
-      showWinnerForm: false,
-      clicksToNextPrize: null,
-      buttonIsEnabled: false
-    })
-    
-  })
+  this.setState({
+    newWinnerName: '',
+    showWinnerForm: false,
+    clicksToNextPrize: null,
+    buttonIsEnabled: false})
 }
 
   //  ONCHANGE OF FORM, SETS STATE OF WINNER NAME AND PREVENTS USER FROM SENDING EMPTY
