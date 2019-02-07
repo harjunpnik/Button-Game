@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 
 class Winners extends React.Component {
   constructor() {
@@ -13,14 +12,13 @@ class Winners extends React.Component {
   //  WHEN COMPONENT MOUN
   componentWillMount() {
     //  GETS THE WINNER NAMES AND SETS "winnerList" STATE TO THE WINNER NAMES
-    axios
-      .get('http://localhost:3001/winners')
-      .then(response => {
-        //  SETS STATE OF "winnerList" and "isLoading" TO FALSE
-        this.setState({ 
-          winnerList: response.data, 
-          isLoading: false })
-      })
+    fetch("/api/getWinners")
+      .then(data => data.json())
+      //  SETS STATE OF "winnerList" and "isLoading" TO FALSE
+      .then(response =>{ this.setState({  
+        winnerList: response.data, 
+        isLoading: false })
+    });
   }
 
   render() {

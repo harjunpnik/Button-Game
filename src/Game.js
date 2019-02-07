@@ -25,13 +25,13 @@ class Game extends React.Component {
   getDataFromDb = () => {
     fetch("/api/getClicks")
       .then(data => data.json())
-      .then(res =>{ this.setState({ clickAmount: res.data[0].clickAmount })
+      .then(response =>{ this.setState({ clickAmount: response.data[0].clickAmount })
       
-        console.log(res.data[0].clickAmount)
+        console.log(response.data[0].clickAmount)
         console.log(this.state.clickAmount)
 
         axios.post("/api/updateClicks", {
-        update: { clickAmount: res.data[0].clickAmount + 1 }
+        update: { clickAmount: response.data[0].clickAmount + 1 }
         })
         .then(response => {
           //  CALCULATES AND SETS THE STATE OF THE "clicksToNextPrize" VARIAABLE

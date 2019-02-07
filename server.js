@@ -46,6 +46,14 @@ router.post("/updateClicks", (req, res) => {
     });
 });
 
+//  GET WINNNER LIST
+router.get("/getWinners", (req, res) => {
+  Winner.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  });
+});
+
 // APPENDS "/api" TO THE REQUESTS 
 app.use("/api", router);
 app.use(express.static(__dirname + "/public"));
