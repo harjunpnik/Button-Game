@@ -13,7 +13,7 @@ class Winners extends React.Component {
   //  WHEN COMPONENT MOUN
   componentWillMount() {
     //  GETS THE WINNER NAMES AND SETS "winnerList" STATE TO THE WINNER NAMES
-    fetch("/api/getWinners")
+    fetch("http://localhost:3001/api/getWinners")
       .then(data => data.json())
       //  SETS STATE OF "winnerList" and "isLoading" TO FALSE
       .then(response =>{ this.setState({  

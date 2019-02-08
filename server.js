@@ -61,14 +61,15 @@ router.post("/postWinner", (req, res) => {
   winner.save()
 })
 
+//REDIRECTS TO "HOME" PAGE 
 app.get( "/info", (req, res) => {
   res.redirect('/');
 })
-
+//REDIRECTS TO "HOME" PAGE 
 app.get( "/", (req, res) => {
   res.redirect('/');
 })
-
+//REDIRECTS TO "HOME" PAGE 
 app.get( "/winners", (req, res) => {
   res.redirect('/');
 })
