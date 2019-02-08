@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Button-Game
 
-## Available Scripts
+A simple button game where every 100 clicks wins you a prize. This game is run with Node.js and MongoDB Backend with a React Frontend. The project can be found on: [https://the-buttongame.herokuapp.com/](https://the-buttongame.herokuapp.com/  "https://the-buttongame.herokuapp.com/"). It might take a while to get the app started from its sleep.
 
-In the project directory, you can run:
+![app example picture](./readme_img/app_example.jpg)
 
-### `npm start`
+## Built With
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [React](https://reactjs.org/) - The web framework used
+* [Node.js](https://nodejs.org/en/) - Backend server 
+* [Express](https://expressjs.com/) - Backend framework
+* [MongoDB](https://www.mongodb.com/) - Used as Database
+* [mLab](https://mlab.com/) - Used as cloud database
+* [Heroku](https://www.heroku.com/) - As hosting service
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Installation on heroku server
 
-### `npm test`
+To install this application on a heroku server you'll need three things:
+* Github profile ( [https://github.com/](https://github.com/ "https://github.com/") )
+* Heroku account ( [https://www.heroku.com/](https://www.heroku.com/ "https://www.heroku.com/") )
+* mLab account ( [https://mlab.com/](https://mlab.com/ "https://mlab.com/") )
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Now follow the following instructions:
 
-### `npm run build`
+1 - You should clone this repository and make your own tweaks if needed. If you make tweaks to your application, remember to build it and upload the build to your git repository. 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2 - Create an Heroku account and "Create a new app" and choose your own region.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+3 - Go to deploy and connect your GitHub profile to Heroku and choose the repository you just made and press "Deploy Branch". 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4 - Create a Mlab account and create a Database. Now copy the " MongoDB URI". (Example: "mongodb://<dbuser>:<dbpassword>@ds123465.mlab.com:23465/buttongamedb")
+![mongo db example](./readme_img/mlab.jpg)
 
-### `npm run eject`
+5 - In Mlab create a User and and replace the "MongoDB URI" parts with the user for "<dbuser>" and password for "<dbPassword>". (Example: "mongodb://testUser:Password1234@ds123465.mlab.com:23465/buttongamedb")
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6 - Finally go back to the application in Heroku and go the the "Settings" page of your application. Go to "Config Vars" and add a config var with the KEY "mongoURL" and VALUE with the "MongoDB URI" you just created. (Example: "mongodb://testUser:Password1234@ds123465.mlab.com:23465/buttongamedb")
+![Heroku config vars example](./readme_img/config_vars.jpg)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Now your application should be upp and running on heroku.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Running the program on localhost
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you want to run the program on a localhost you need to do a couple of changes. First you need to download the dependencies the program is using. Just write   
 
-## Learn More
+```
+npm i
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+in the root folders command console. After that when you want to start the application just type 
+```
+npm run dev
+```
+in the root folders command console. This will start the development localhost. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get the database working on local host you need to go and change a few locations. 
 
-### Code Splitting
+In the "server.js" file , line 18, you need to change the 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```javascript
+const dbRoute = process.env.mongoURL 
+```
+to your own "MongoDB URI". (Example: "mongodb://testUser:Password1234@ds123465.mlab.com:23465/buttongamedb")
 
-### Analyzing the Bundle Size
+In the src folder you need to add "http://localhost:3001/" before each request. You need to make these changes in the "Game.js" file and "Winners.js" file. The result should look like 
+```javascript
+fetch("http://localhost:3001/api/getClicks") // Game.js file, line 27
+axios.post("http://localhost:3001/api/updateClicks", { // Game.js file, line 31
+axios.post("http://localhost:3001/api/postWinner", { // Game.js file, line 66
+fetch("http://localhost:3001/api/getWinners") // Winners.js file, line 16
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Now when you save the files Nodemon should refresh your server and show that the changes should work.
 
-### Making a Progressive Web App
+## Api Reference
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+This application uses two api get refrences to get data from the database. From here you can see all the information that is saved.
 
-### Advanced Configuration
+To get the total amount of clicks, use this api : [https://the-buttongame.herokuapp.com/api/getClicks](https://the-buttongame.herokuapp.com/api/getClicks/  "https://the-buttongame.herokuapp.com/api/getClicks")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+To get the list of winners, use this api : [https://the-buttongame.herokuapp.com/api/getWinners](https://the-buttongame.herokuapp.com/api/getWinners  "https://the-buttongame.herokuapp.com/api/getWinners")
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Some information about the application and structure.
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The application is built so that the "server.js" file is running on the heroku server. By default it connects to the application build, so changes that are made and not made to a build will not be shown on the heroku server if deployed there. This is why you need to make a build when deploying it to heroku server. 
