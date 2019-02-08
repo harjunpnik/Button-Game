@@ -2,7 +2,7 @@
 
 A simple button game where every 100 clicks wins you a prize. This game is run with Node.js and MongoDB Backend with a React Frontend. The project can be found on: [https://the-buttongame.herokuapp.com/](https://the-buttongame.herokuapp.com/  "https://the-buttongame.herokuapp.com/"). It might take a while to get the app started from its sleep.
 
-![app example picture](./readme_img/app_example.jpg)
+![app example picture](https://github.com/harjunpnik/Button-Game/blob/master/readme_img/app_example.JPG)
 
 ## Built With
 
@@ -29,12 +29,13 @@ Now follow the following instructions:
 3 - Go to deploy and connect your GitHub profile to Heroku and choose the repository you just made and press "Deploy Branch". 
 
 4 - Create a Mlab account and create a Database. Now copy the " MongoDB URI". (Example: "mongodb://<dbuser>:<dbpassword>@ds123465.mlab.com:23465/buttongamedb")
-![mongo db example](./readme_img/mlab.jpg)
+![mongo db example](https://github.com/harjunpnik/Button-Game/blob/master/readme_img/mlab.JPG)
 
 5 - In Mlab create a User and and replace the "MongoDB URI" parts with the user for "<dbuser>" and password for "<dbPassword>". (Example: "mongodb://testUser:Password1234@ds123465.mlab.com:23465/buttongamedb")
+![mongo db example](https://github.com/harjunpnik/Button-Game/blob/master/readme_img/mlab_user.JPG)
 
 6 - Finally go back to the application in Heroku and go the the "Settings" page of your application. Go to "Config Vars" and add a config var with the KEY "mongoURL" and VALUE with the "MongoDB URI" you just created. (Example: "mongodb://testUser:Password1234@ds123465.mlab.com:23465/buttongamedb")
-![Heroku config vars example](./readme_img/config_vars.jpg)
+![Heroku config vars example](https://github.com/harjunpnik/Button-Game/blob/master/readme_img/config_vars.JPG)
 
 Now your application should be upp and running on heroku.
 
