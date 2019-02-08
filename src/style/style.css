@@ -1,4 +1,4 @@
-/*CSS FOR THE MOBILE*/
+/*CSS TWEAKS FOR THE MOBILE*/
 @media (max-width: 720px){
   nav {
     width: 100%;
@@ -9,6 +9,10 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .gamePage, .winnerPage, .infoPage{
+    min-width: 90%;
   }
 }
 
@@ -120,7 +124,6 @@ header a:hover{
   padding: 10px;
   margin-top: 20vh;
   width: 50%;
-  min-width: 90%;
   margin-bottom: 6vh;
 }
 

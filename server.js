@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.static('build'))
 
 //  CONST FOR OUR DATABASE LINK
-const dbRoute = 'mongodb://dbUser:dbUserPass1@ds123465.mlab.com:23465/buttongamedb'
+const dbRoute = process.env.mongoURL
 //  CONNECTS TO THE MONGO DATABASE
 mongoose.connect(
     dbRoute,
